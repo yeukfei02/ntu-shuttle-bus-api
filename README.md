@@ -2,9 +2,9 @@
 
 ntu-shuttle-bus-api
 
-documentation: <>
+documentation: <https://documenter.getpostman.com/view/3827865/UVsHV8qv>
 
-api url: <>
+api url: <https://n784k2f6s0.execute-api.ap-southeast-1.amazonaws.com/prod>
 
 ## Requirement
 
