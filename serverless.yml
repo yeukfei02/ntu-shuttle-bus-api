@@ -1,0 +1,93 @@
+org: yeukfei05
+app: ntu-shuttle-bus-api
+service: ntu-shuttle-bus-api
+
+frameworkVersion: '3'
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: prod
+  region: ap-southeast-1
+  apiName: ntu-shuttle-bus-api-prod
+  tracing:
+    apiGateway: true
+    lambda: true
+  environment:
+    NODE_ENV: production
+  apiGateway:
+    shouldStartNameWithService: true
+    description: ntu shuttle bus api prod
+  lambdaHashingVersion: 20201221
+  architecture: arm64
+  timeout: 30
+
+functions:
+  main:
+    handler: src/main/handler.main
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true
+
+  blueBus:
+    handler: src/blueBus/handler.blueBus
+    events:
+      - http:
+          path: /blue-bus
+          method: get
+          cors: true
+
+  redBus:
+    handler: src/redBus/handler.redBus
+    events:
+      - http:
+          path: /red-bus
+          method: get
+          cors: true
+
+  yellowBus:
+    handler: src/yellowBus/handler.yellowBus
+    events:
+      - http:
+          path: /yellow-bus
+          method: get
+          cors: true
+          
+  greenBus:
+    handler: src/greenBus/handler.greenBus
+    events:
+      - http:
+          path: /green-bus
+          method: get
+          cors: true
+
+  brownBus:
+    handler: src/brownBus/handler.brownBus
+    events:
+      - http:
+          path: /brown-bus
+          method: get
+          cors: true
+
+  busStopDetails:
+    handler: src/busStopDetails/handler.busStopDetails
+    events:
+      - http:
+          path: /bus-stop-details
+          method: get
+          cors: true
+
+  busArrival:
+    handler: src/busArrival/handler.busArrival
+    events:
+      - http:
+          path: /bus-arrival
+          method: get
+          cors: true
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
