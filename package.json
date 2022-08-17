@@ -37,6 +37,7 @@
     "dashboard": "serverless dashboard",
     "remove": "serverless remove",
     "lint": "eslint '*/**/*.{ts,tsx}' --quiet --fix",
+    "format": "prettier --write '*/**/*.{ts,tsx}'",
     "test": "jest",
     "commit": "git-cz",
     "release": "standard-version",
