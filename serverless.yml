@@ -7,7 +7,7 @@ useDotenv: true
 
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: nodejs16.x
   stage: prod
   region: ap-southeast-1
   apiName: ntu-shuttle-bus-api-prod
@@ -19,7 +19,6 @@ provider:
   apiGateway:
     shouldStartNameWithService: true
     description: ntu shuttle bus api prod
-  lambdaHashingVersion: 20201221
   architecture: arm64
   timeout: 30
 
